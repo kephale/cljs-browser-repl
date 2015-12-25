@@ -11,7 +11,8 @@
                  [cljsjs/react-with-addons "0.14.3-0"]
                  [secretary "1.2.3"]
                  [cljs-http "0.1.37"]
-                 [replumb "0.1.2"]]
+                 [replumb "0.1.3"]
+                 [cljs-mathbox "1.0.1"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
             [lein-figwheel "0.5.0-1"]]
