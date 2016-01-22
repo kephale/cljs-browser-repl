@@ -4,6 +4,7 @@
             [replumb.core :refer [error->str]]
             [replumb.repl :refer [current-ns]]
             [clojure.string :refer [blank?]]
+            ;cljsjs.mathbox
             ))
 
 (defn new-input! [s]
@@ -24,7 +25,7 @@
          (when history?
            (swap! state/history state/add-entry
                   (if error
-                    (state/to-repl-error (error->str error))
+                    (state/to-repl-error (error->str error true))
                     (do
                       (reset! state/current-ns (current-ns))
                       (state/to-repl-result value))))))))))

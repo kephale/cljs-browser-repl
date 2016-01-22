@@ -2,7 +2,10 @@
     (:require [reagent.core :as reagent]
               [cljs-browser-repl.actions.repl :refer [repl-entry!]]
               [cljs-browser-repl.ui.cljs-browser-repl :refer [cljs-browser-repl]]
-              [cljs-browser-repl.router :as router]))
+              [cljs-browser-repl.router :as router]
+              [cljs-browser-repl.mathbox]
+              ;cljs-mathbox.mathbox
+              #_cljsjs.mathbox))
 
 (enable-console-print!)
 

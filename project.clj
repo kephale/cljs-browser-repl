@@ -11,10 +11,13 @@
                  [cljsjs/react-with-addons "0.14.3-0"]
                  [secretary "1.2.3"]
                  [cljs-http "0.1.37"]
-                 [replumb "0.1.3"]
-                 [cljs-mathbox "1.0.1"]]
+                 ;[replumb "0.1.3"]
+                 [replumb "0.1.3-SNAPSHOT"]
+                 ;[cljsjs/mathbox "0.0.1-0"]
+                 ;[cljs-mathbox "1.0.1"]
+                 ]
 
-  :plugins [[lein-cljsbuild "1.1.1"]
+  :plugins [[lein-cljsbuild "1.1.2"]
             [lein-figwheel "0.5.0-1"]]
 
   :source-paths ["src"]
@@ -31,7 +34,19 @@
                          :asset-path "js/compiled/out"
                          :output-to "resources/public/js/compiled/cljs_browser_repl.js"
                          :output-dir "resources/public/js/compiled/out"
-                         :source-map-timestamp true }}
+                         :source-map-timestamp true 
+                         :foreign-libs
+                         [{:provides ["cljsjs.mathbox"]
+                           ;:requires ["cljsjs.codemirror"]
+                           ;:file "resources/public/js/vendor/cljsjs/mathbox/common/mathbox.js"
+                           :file "resources/public/js/vendor/cljsjs/mathbox/mathbox.js"
+                           ;:file "http://kephale.github.io/cljs-browser-repl/js/vendor/cljsjs/mathbox/common/mathbox.js"
+                           }]
+                         ;:preamble ["resources/public/js/vendor/cljsjs/mathbox/MathBox-bundle.inc.js"]
+                         ;:externs ["resources/public/js/vendor/scljsjs/mathbox/mathbox.ext.js"]
+                         #_:closure-warnings #_{:externs-validation :off
+                                               :non-standard-jsdoc :off}
+                         }}
              {:id "min"
               :source-paths ["src"]
               :compiler {:output-to "resources/public/js/compiled/cljs_browser_repl.js"
